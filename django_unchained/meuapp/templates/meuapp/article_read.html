@@ -1,0 +1,41 @@
+{% extends "content.html" %}
+
+{% block content %}
+
+    <h1>Article list</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Field</th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col">Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Publication Date</th>
+                <td>{{ article.pub_date|date:"d/M/Y H:i" }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Reporter</th>
+                <td>{{ article.reporter }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Magazines</th>
+                <td>{{ article.magazines.all|join:", " }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'meuapp:article_list' %}" role="button">
+        <span class="text-light text-center">
+            Back
+        </span>
+    </a>
+{% endblock %}
